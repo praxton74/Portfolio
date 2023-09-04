@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+	<title>Julian Wyatt</title>
+
+	<!-- Favicons -->
+	<link href="https://img.icons8.com/nolan/64/code-fork.png" rel="icon">
+	<link href="https://img.icons8.com/nolan/64/code-fork.png" rel="apple-touch-icon">
+
+	<!-- Scripts -->
+	<script src="./assets/js/Sudoku/index.js"></script>
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy"
+		rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	 <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+	<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	<!--<link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+	<link href="assets/vendor/venobox/venobox.css" rel="stylesheet"> -->
+
+	<!-- Template Main CSS File -->
+	<link href="assets/css/style.css" rel="stylesheet">
+
+	<!-- =======================================================
+  * Template Name: Laura - v2.0.0
+  * Template URL: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top  d-flex justify-content-center align-items-center">
+
+		<nav id="nav" class="nav-colour nav-menu-scrolled nav-menu d-none d-lg-block d-md-block">
+			<ul>
+				<li class="active"><a href="./">Home</a></li>
+				<li><a href="./#about">About</a></li>
+				<li><a href="./#resume">Resume</a></li>
+				<li><a href="./#portfolio">Portfolio</a></li>
+				<li><a href="./#contact">Contact</a></li>
+
+			</ul>
+		</nav><!-- .nav-menu -->
+
+	</header><!-- End Header -->
+
+	<main id="main">
+		<div class="container align-content-center smallMargin" >
+			<h2 >Summer 2020 Personal Project</h2>
+			<h3>Sudoku from an image and solve</h3>
+			<p style="margin-bottom: 0px;"><strong>Task: </strong>Using OpenCV and tensorflow I wanted to write a model which is able to read in a sudoku instance from an image and translate this so a machine can understand and then add a simple solver.</p>
+			<br>
+			<b>Libraries & Technologies used:</b> Python, OpenCV, OpenCVJS, TensorFlow
+			​<div id="team" style="margin-bottom: 20px;">
+				<div class="social-links">
+					<div class="row" style="margin-left: 10px;margin-top:0px;">
+						<div class="col-9 col-sm-9 col-md-7 col-lg-5 col-xl-4">
+							<i class="icofont-rounded-right"></i>For the complete source code, please visit:
+							<!-- <a style="margin-left: 1vw;" href="https://github.com/Julian-Wyatt/Sudoku" class="github"><i class="bx bxl-github"></i></a> -->
+						</div>
+						<div class="col d-flex justify-content-start">
+							<a href="https://github.com/Julian-Wyatt/Sudoku" class="github"><i class="bx bxl-github"></i></a>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+			<div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
+				
+				<button class="btn btn-dark" style="width: 45%;"  id="clearButton">Clear</button>
+				<button class="btn btn-dark"  style="width: 45%;" id="solveButton">Solve</button>
+				<!-- <div class="row">
+					<button class="btn btn-dark"  style="width:50%" id="clearButton">Clear</button>
+					<button class="btn btn-dark"  style="width:50%"  id="solveButton">Solve</button>
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 d-flex align-content-end" style="padding:5px">
+					
+						
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 d-flex align-content-start" style="padding:5px">
+						<button class="btn btn-dark"   id="solveButton">Solve</button>
+					</div>
+				
+				</div> -->
+				<br>
+				<p id="status">If you would like to import an image of a sudoku,<br> please wait for opencv to load </p>
+				<div class="row" style="margin-left: 10px; margin-bottom:10px">
+					<img id="imageSrc" style="display:none" alt="No Image" />
+					<input class="d-flex" type="file" id="fileInput" name="file" />
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid ">
+
+		
+			<div class="row">
+				<div class="col-xl-1 col-lg-1 col-md-12 col-sm-12">
+
+				</div>
+				<div class="col-xl-6 col-lg-7 col-md-12 col-sm-12  smallContainer" style="box-shadow:0 1px 2px 0 rgba(34,36,38,.15); border: 1px solid rgba(34,36,38,.15); border-radius: .28571429rem;">
+					<table id="grid">
+						<tr id="row1">
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+						<tr id="row2">
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>1</td>
+							<td contenteditable>3</td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>9</td>
+							<td contenteditable>7</td>
+							<td contenteditable></td>
+						</tr>
+						<tr id="row3">
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>6</td>
+							<td contenteditable>4</td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+						<tr id="row4">
+							<td contenteditable>3</td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>6</td>
+							<td contenteditable>9</td>
+							<td contenteditable></td>
+						</tr>
+						<tr id="row5">
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>9</td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>2</td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+						<tr id="row6">
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>9</td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>4</td>
+							<td contenteditable>1</td>
+						</tr>
+						<tr id="row7">
+							<td contenteditable>9</td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>3</td>
+							<td contenteditable>5</td>
+							<td contenteditable></td>
+							<td contenteditable>6</td>
+						</tr>
+						<tr id="row8">
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>3</td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>1</td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+						<tr id="row9">
+							<td contenteditable></td>
+							<td contenteditable>5</td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable>1</td>
+							<td contenteditable></td>
+						</tr>
+					</table>
+				</div>
+			
+				<div class="col-xl-3 col-lg-2 col-md-12 col-sm-12"> 
+					<div class="row">
+						<canvas style="margin-left:20px" id="canvasOutput" width="260" height="560"></canvas>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+	</main><!-- End #main -->
+
+	<!-- ======= Footer ======= -->
+	<footer id="footer">
+		<div class="container" id="contact">
+			<h3>Julian Wyatt</h3>
+			<p>If you wish to contact me to ask any questions about any of my work or to view my work, please use the social links below.<br> I would love to hear from you!</p>
+			<p><strong>Email:</strong>   julian_wyatt@hotmail.com</p>
+			<div class="social-links">
+				<a href="https://github.com/Julian-Wyatt" class="github"><i class="bx bxl-github"></i></a>
+				<a href="https://www.linkedin.com/in/julian-wyatt-284468174/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+			</div>
+			<br>
+			Favicon Rights are owned by: <a href="https://www.icons8.com">icons8.com</a>
+			
+
+		</div>
+	</footer><!-- End Footer -->
+
+	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+	<script src="assets/js/mobileNav.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+<script async src="assets/js/Sudoku/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+</html>

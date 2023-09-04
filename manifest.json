@@ -1,0 +1,14 @@
+{
+    "name": "Julian Wyatt",
+    "short_name": "Julian",
+    "icons": [
+        {
+            "src": "https://img.icons8.com/nolan/64/code-fork.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
